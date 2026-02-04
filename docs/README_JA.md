@@ -1,10 +1,10 @@
-# InstallerX Revived (Community Edition)
+# InstallerX Revived For KernelSU
 
-[English](README.md) | [简体中文](README_CN.md) | [Español](README_ES.md) | **日本語** | [Deutsch](README_DE.md)
+[English](README_EN.md) | [简体中文](README.md) | **日本語**
 
 [![ライセンス: GPL v3](https://img.shields.io/badge/ライセンス-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)[![安定版](https://img.shields.io/github/v/release/wxxsfxyzm/InstallerX?label=安定版)](https://github.com/wxxsfxyzm/InstallerX/releases/latest)[![ベータ版](https://img.shields.io/github/v/release/wxxsfxyzm/InstallerX?include_prereleases&label=ベータ版)](https://github.com/wxxsfxyzm/InstallerX/releases)[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?logo=telegram&logoColor=white)](https://t.me/installerx_revived)
 
-- これは、作者によって[元のプロジェクト](https://github.com/iamr0s/InstallerX)がアーカイブされた後にコミュニティによって維持されているフォークです
+- これはモジュール対応のブランチ版です。[原プロジェクト](https://github.com/wxxsfxyzm/InstallerX-Revived)
 - 限定的なオープンソースの更新とサポートを提供します
 - GNU GPLv3 ライセンスを厳格に遵守 - 全ての変更はオープンソースで公開されています
 - コミュニティの皆様からのご貢献を心から歓迎いたします！
@@ -162,6 +162,7 @@ InstallerX をベースに開発を行う場合、メインプロジェクトに
 
 本プロジェクトは、以下のプロジェクトのコードを使用しているか、またはその実装に基づいています:
 
+- [wxxsfxyzm/InstallerX-Revived](https://github.com/wxxsfxyzm/InstallerX-Revived)
 - [iamr0s/InstallerX](https://github.com/iamr0s/InstallerX)
 - [tiann/KernelSU](https://github.com/tiann/KernelSU)
 - [RikkaApps/Shizuku](https://github.com/RikkaApps/Shizuku)
