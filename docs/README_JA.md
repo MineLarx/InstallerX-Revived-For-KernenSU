@@ -2,7 +2,7 @@
 
 [English](README_EN.md) | [简体中文](README.md) | **日本語**
 
-[![ライセンス: GPL v3](https://img.shields.io/badge/ライセンス-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)[![安定版](https://img.shields.io/github/v/release/wxxsfxyzm/InstallerX?label=安定版)](https://github.com/wxxsfxyzm/InstallerX/releases/latest)[![ベータ版](https://img.shields.io/github/v/release/wxxsfxyzm/InstallerX?include_prereleases&label=ベータ版)](https://github.com/wxxsfxyzm/InstallerX/releases)[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?logo=telegram&logoColor=white)](https://t.me/installerx_revived)
+[![ライセンス: GPL v3](https://img.shields.io/badge/ライセンス-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)[![安定版](https://img.shields.io/github/v/release/MineLarx/InstallerX-Revived-For-KernenSU?label=安定版)](https://github.com/MineLarx/InstallerX-Revived-For-KernenSU/releases/latest)[![ベータ版](https://img.shields.io/github/v/release/MineLarx/InstallerX-Revived-For-KernenSU?include_prereleases&label=ベータ版)](https://github.com/MineLarx/InstallerX-Revived-For-KernenSU/releases)
 
 - これはモジュール対応のブランチ版です。[原プロジェクト](https://github.com/wxxsfxyzm/InstallerX-Revived)
 - 限定的なオープンソースの更新とサポートを提供します
