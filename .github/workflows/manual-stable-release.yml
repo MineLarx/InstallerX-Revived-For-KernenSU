@@ -91,6 +91,70 @@ jobs:
             mv "$ORIGINAL_APK" "$NEW_APK_PATH"
           done
 
+      - name: Build KernelSU Module ZIPs
+        id: build_module
+        run: |
+          MODULE_TEMPLATE="module"
+          OUT_DIR="module_build"
+
+          PROJECT_NAME="InstallerX-Revived"
+          VERSION_TAG="${{ inputs.version_tag }}"
+
+          ONLINE_APK="app/build/outputs/apk/onlineStable/release/${PROJECT_NAME}-online-${VERSION_TAG}.apk"
+          OFFLINE_APK="app/build/outputs/apk/offlineStable/release/${PROJECT_NAME}-offline-${VERSION_TAG}.apk"
+
+          ONLINE_MODULE_DIR="${OUT_DIR}/online_module"
+          OFFLINE_MODULE_DIR="${OUT_DIR}/offline_module"
+
+          mkdir -p "$ONLINE_MODULE_DIR"
+          mkdir -p "$OFFLINE_MODULE_DIR"
+
+          echo "Copying module template..."
+          cp -r $MODULE_TEMPLATE/* "$ONLINE_MODULE_DIR/"
+          cp -r $MODULE_TEMPLATE/* "$OFFLINE_MODULE_DIR/"
+          
+          echo "Sync module.prop version (Stable)..."
+
+          ONLINE_PROP="$ONLINE_MODULE_DIR/module.prop"
+          OFFLINE_PROP="$OFFLINE_MODULE_DIR/module.prop"
+
+          if [ -f "$ONLINE_PROP" ]; then
+            sed -i "s/^version=.*/version=${{ inputs.version_tag }}/" "$ONLINE_PROP"
+            sed -i "s/^versionCode=.*/versionCode=$(date +%s)/" "$ONLINE_PROP"
+          fi
+
+          if [ -f "$OFFLINE_PROP" ]; then
+            sed -i "s/^version=.*/version=${{ inputs.version_tag }}/" "$OFFLINE_PROP"
+            sed -i "s/^versionCode=.*/versionCode=$(date +%s)/" "$OFFLINE_PROP"
+          fi
+
+          echo "Injecting APK..."
+
+          ONLINE_TARGET="$ONLINE_MODULE_DIR/system/priv-app/PackageInstaller"
+          OFFLINE_TARGET="$OFFLINE_MODULE_DIR/system/priv-app/PackageInstaller"
+
+          mkdir -p "$ONLINE_TARGET"
+          mkdir -p "$OFFLINE_TARGET"
+
+          cp "$ONLINE_APK" "$ONLINE_TARGET/PackageInstaller.apk"
+          cp "$OFFLINE_APK" "$OFFLINE_TARGET/PackageInstaller.apk"
+
+          echo "Packing module zip..."
+
+          ONLINE_ZIP="${PROJECT_NAME}-online-module-${VERSION_TAG}.zip"
+          OFFLINE_ZIP="${PROJECT_NAME}-offline-module-${VERSION_TAG}.zip"
+
+          cd "$ONLINE_MODULE_DIR"
+          zip -r "../../$ONLINE_ZIP" .
+          cd -
+
+          cd "$OFFLINE_MODULE_DIR"
+          zip -r "../../$OFFLINE_ZIP" .
+          cd -
+
+          echo "online_module_zip=$ONLINE_ZIP" >> $GITHUB_OUTPUT
+          echo "offline_module_zip=$OFFLINE_ZIP" >> $GITHUB_OUTPUT
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
@@ -101,3 +165,5 @@ jobs:
           files: |
             app/build/outputs/apk/onlineStable/release/InstallerX-Revived-online-${{ inputs.version_tag }}.apk
             app/build/outputs/apk/offlineStable/release/InstallerX-Revived-offline-${{ inputs.version_tag }}.apk
+            ${{ steps.build_module.outputs.online_module_zip }}
+            ${{ steps.build_module.outputs.offline_module_zip }}

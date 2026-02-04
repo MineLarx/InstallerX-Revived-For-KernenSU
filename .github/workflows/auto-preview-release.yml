@@ -132,6 +132,21 @@ jobs:
           echo "Copying module template..."
           cp -r $MODULE_TEMPLATE/* "$ONLINE_MODULE_DIR/"
           cp -r $MODULE_TEMPLATE/* "$OFFLINE_MODULE_DIR/"
+          
+          echo "Sync module.prop version..."
+
+          ONLINE_PROP="$ONLINE_MODULE_DIR/module.prop"
+          OFFLINE_PROP="$OFFLINE_MODULE_DIR/module.prop"
+
+          if [ -f "$ONLINE_PROP" ]; then
+            sed -i "s/^version=.*/version=${{ env.NEW_VERSION }}/" "$ONLINE_PROP"
+            sed -i "s/^versionCode=.*/versionCode=$(date +%s)/" "$ONLINE_PROP"
+          fi
+
+          if [ -f "$OFFLINE_PROP" ]; then
+            sed -i "s/^version=.*/version=${{ env.NEW_VERSION }}/" "$OFFLINE_PROP"
+            sed -i "s/^versionCode=.*/versionCode=$(date +%s)/" "$OFFLINE_PROP"
+          fi
 
           echo "Injecting APK into module..."
 
