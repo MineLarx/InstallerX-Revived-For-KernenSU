@@ -2,7 +2,7 @@
 
 [English](README_EN.md) | **简体中文** | [日本語](README_JA.md)
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)[![Latest Release](https://img.shields.io/github/v/release/MineLarx/InstallerX-Revived-For-KernenSU?label=稳定版)](https://github.com/MineLarx/InstallerX-Revived-For-KernenSU/releases/latest)[![Prerelease](https://img.shields.io/github/v/release/MineLarx/InstallerX-Revived-For-KernenSU?include_prereleases&label=测试版)](https://github.com/MineLarx/InstallerX/releases)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)[![Latest Release](https://img.shields.io/github/v/release/MineLarx/InstallerX-Revived-For-KernenSU?label=稳定版)](https://github.com/MineLarx/InstallerX-Revived-For-KernenSU/releases/latest)[![Prerelease](https://img.shields.io/github/v/release/MineLarx/InstallerX-Revived-For-KernenSU?include_prereleases&label=测试版)](https://github.com/MineLarx/InstallerX-Revived-For-KernenSU/releases)
 
 - 这是一个模块分支版本， [原项目](https://github.com/wxxsfxyzm/InstallerX-Revived)
 - 提供有限的开源更新和支持
